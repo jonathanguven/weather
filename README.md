@@ -6,7 +6,7 @@ Most of the setup was taken from the [discord.js](https://discordjs.guide/#befor
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to change the name of .evn.example to .env and add the following environment variables to your .env file
 
 `BOT_TOKEN` - Token of the bot
 
