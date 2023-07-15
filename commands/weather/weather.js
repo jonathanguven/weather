@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
-const weather = require('../../checkWeather');
+const weather = require('./checkWeather');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -10,7 +10,6 @@ module.exports = {
         .addStringOption(option => option.setName('degree').setDescription('The degree type (C or F)').addChoices({ name: 'F', value: 'F'}, { name: 'C', value: 'C'})),
     async execute(interaction) {
 
-
         const data = await weather.checkWeather('San Jose');
         const temp = data.current.temp_f;
         const condition = data.current.condition.text;
@@ -19,9 +18,6 @@ module.exports = {
         const icon = `https:${data.current.condition.icon}`;
         const windSpeed = data.current.wind_mph;
         const windDir = data.current.wind_dir;
-        
-
-
 
         const weatherEmbed = new EmbedBuilder()
         .setColor(0x0099FF)
