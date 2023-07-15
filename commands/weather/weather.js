@@ -10,14 +10,13 @@ module.exports = {
         .addStringOption(option => option.setName('location').setDescription('The location to get the weather from'))
         .addStringOption(option => option.setName('degree').setDescription('The degree type (C or F)').addChoices({ name: 'F', value: 'F'}, { name: 'C', value: 'C'})),
     async execute(interaction) {
+        // grabs the city from the user-inputted option
         let city = interaction.options.getString('location');
-        console.log(`fetching initial default: ${city}`);
-        if (!city) {
+        if (!city) { // if no user input, get the last set default location
             city = await location.getLocation();
-            console.log(`No default location: ${city}`);
         }
         if (city === null) {
-            return interaction.reply('Please provide a valid location');
+            return interaction.reply('Please provide a valid location'); // default location has not yet been set
         }
         
         const data = await weather.checkWeather(city);
