@@ -11,11 +11,10 @@ module.exports = {
         .addStringOption(option => option.setName('degree').setDescription('The degree type (C or F)').addChoices({ name: 'F', value: 'F'}, { name: 'C', value: 'C'})),
     async execute(interaction) {
         const loc = interaction.options.getString('location');
-        let location;
+        let location = loc;
         if (loc === null) {
             location = defaultLocation;
         }
-
         if (location === "") {
             return interaction.reply('Please provide a location, or set a default location!');
         }
