@@ -1,4 +1,4 @@
-const defaultLocation = require('../../settings.json');
+const defaultLocation = require('./settings.json');
 module.exports = {
     checkWeather: async function checkWeather(location) {
         const apiKey = process.env.API_KEY
