@@ -1,4 +1,5 @@
-const { defaultLocation, defaultSign } = require('../../settings.json');
+const location = require('./set-default-location');
+const symbol = require('./set-default-symbol');
 const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
@@ -6,7 +7,7 @@ module.exports = {
         .setName('settings')
         .setDescription('Provides information on current presets'),
     async execute(interaction) {
-        const symbol = defaultSign === 'F' ? 'Fahrenheit' : 'Celcius';
-        return interaction.reply(`Default Location: ${defaultLocation}\nDefault Symbol: ${symbol}`);
+        const sign = symbol === 'F' ? 'Fahrenheit' : 'Celcius';
+        return interaction.reply(`Default Location: ${location}\nDefault Symbol: ${sign}`);
     },
 };

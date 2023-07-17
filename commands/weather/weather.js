@@ -1,7 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
 const weather = require('../../checkWeather');
-const location = require('./setDefaultLocation');
+const location = require('./set-default-location');
+const symbol = require('./set-default-symbol');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -16,15 +17,24 @@ module.exports = {
             city = await location.getLocation();
         }
         if (city === null) {
-            return interaction.reply('Please provide a valid location'); // default location has not yet been set
+            return interaction.reply('Please provide a valid location, or set a new default location'); // default location has not yet been set
         }
-        
+
+        let degree = interaction.options.getString('degree') // grabs C or F from user input
+        if (!degree) { degree = await symbol.getSymbol(); }
+
+        // api call
         const data = await weather.checkWeather(city);
 
-        const temp = data.current.temp_f;
+        let temp = data.current.temp_f;;
+        let feel = data.current.feelslike_f;;
+        if (degree === 'C') {
+            temp = data.current.temp_c;
+            feel = data.current.feelslike_c;
+        }
+
         const condition = data.current.condition.text;
         const name = data.location.name;
-        const feel = data.current.feelslike_f;
         const icon = `https:${data.current.condition.icon}`;
         const windSpeed = data.current.wind_mph;
         const windDir = data.current.wind_dir;
@@ -32,8 +42,8 @@ module.exports = {
         const weatherEmbed = new EmbedBuilder()
         .setColor(0x0099FF)
         .setTitle(`Current weather of ${name}, ${data.location.region}`)
-        .addFields( { name : 'Temperature', value: `${temp}`})
-        .addFields( { name : 'Feels like', value: `${feel}`})
+        .addFields( { name : 'Temperature', value: `${temp} \xB0${degree}`})
+        .addFields( { name : 'Feels like', value: `${feel} \xB0${degree}`})
         .addFields( { name : 'Weather', value: `${condition}`})
         .addFields( { name : 'Wind Speed & Direction', value: `${windSpeed}, ${windDir}`})
         .setThumbnail(icon)            

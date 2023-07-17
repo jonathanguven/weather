@@ -1,4 +1,3 @@
-const { defaultLocation, defaultSign } = require('../../settings.json');
 const { SlashCommandBuilder } = require('discord.js');
 let location = null; // default location is null until user runs this command
 
