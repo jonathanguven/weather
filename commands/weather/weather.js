@@ -35,6 +35,8 @@ module.exports = {
             const condition = data.current.condition.text;
             const name = data.location.name;
             const icon = `https:${data.current.condition.icon}`;
+            const precipitation = data.current.precip_in;
+            const humidity = data.current.humidity;
             const windSpeed = data.current.wind_mph;
             const windDir = data.current.wind_dir;
 
@@ -44,6 +46,8 @@ module.exports = {
             .addFields( { name : 'Temperature', value: `${temp} \xB0${degree}`})
             .addFields( { name : 'Feels like', value: `${feel} \xB0${degree}`})
             .addFields( { name : 'Weather', value: `${condition}`})
+            .addFields( { name : 'Precipitation', value: `${precipitation} inches`})
+            .addFields( { name : 'Relative Humidity', value: `${humidity}%`})
             .addFields( { name : 'Wind Speed & Direction', value: `${windSpeed}, ${windDir}`})
             .setThumbnail(icon)            
             .setTimestamp()
