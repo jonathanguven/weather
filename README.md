@@ -1,4 +1,4 @@
-# weather
+# Weather Bot
 
 A Discord bot used to show real time weather updates of a specific location
 
