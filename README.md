@@ -21,7 +21,7 @@ Weather Bot has 8 commands that users can use. 4 of them are basic utility comma
 ### Weather Commands
 `/weather [opt:location] [opt:degree-symbol]` - Fetches the weather from the location specified, with the degreev(C or F) specified. Without location argument, command fetches weather from last default location set. Without degree symbol argument, uses last setdefault symbol.
 
-`/set-default-location [req: new-location]` - Sets the default location of the bot to the user-inputted location. Users must set default location before using `/weather` without a location argument.
+`/set-default-location [req: new-location]` - Sets the default location of the bot to the user-inputted location. Users must set default location before using weather command without a location argument.
 
 `/set-default-symbol [Choices: C or F]` - Sets the default temperature signal to the choice that the user inputted, F for Fahrenheit and C for Celcius. By default, the symbol is 'F'.
 
