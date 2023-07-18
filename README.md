@@ -13,3 +13,7 @@ To run this project, you will need to change the name of .evn.example to .env an
 `GUILD_ID` - Server ID that the bot is in (only used for deploying commands)
 
 `CLIENT_ID` - Client ID of the bot (only used for deploying commands)
+
+## Commands
+
+Weather Bot has 4 commands that users can use. 5 of them are basic server utility
