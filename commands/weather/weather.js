@@ -50,7 +50,7 @@ module.exports = {
             .setFooter({ text: 'Data pulled from weatherapi.com'});
             await interaction.reply({ embeds: [weatherEmbed] });
         } catch (error) {
-            await interaction.reply(`An error occured while checking the weather of \'${city}.\'\nPlease use a valid location\n`);
+            await interaction.reply(`__**ERROR**__\nAn error occured while checking the weather of \'${city}.\'\nPlease use a valid location\n`);
             console.log(error);
         }
         
