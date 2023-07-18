@@ -48,7 +48,7 @@ module.exports = {
             .addFields( { name : 'Weather', value: `${condition}`})
             .addFields( { name : 'Precipitation', value: `${precipitation} inches`})
             .addFields( { name : 'Relative Humidity', value: `${humidity}%`})
-            .addFields( { name : 'Wind Speed & Direction', value: `${windSpeed}, ${windDir}`})
+            .addFields( { name : 'Wind Speed & Direction', value: `${windSpeed} MPH, ${windDir}`})
             .setThumbnail(icon)            
             .setTimestamp()
             .setFooter({ text: 'Data pulled from weatherapi.com'});
