@@ -16,4 +16,5 @@ To run this project, you will need to change the name of .evn.example to .env an
 
 ## Commands
 
-Weather Bot has 4 commands that users can use. 5 of them are basic server utility
+Weather Bot has 8 commands that users can use. 4 of them are basic utility commands that provide basic info on the bot, the server, and the user. The other 4 are weather commands that deal with setting default values and fetching the weather.
+
