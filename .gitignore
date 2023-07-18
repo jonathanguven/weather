@@ -1,6 +1,4 @@
 /node_modules/
-.eslintrc.json
-config.json
+/extras
 /.env
 /pnpm-lock.yaml
-/extras/.eslintrc.json
